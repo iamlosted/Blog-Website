@@ -1,0 +1,1191 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="{{project.meta.ogDescription}}">
+      <meta name="theme-color" content="#ffffff">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="robots" content="{{project.meta.robotsMeta}}">
+      
+      <title>Blog Website</title>
+      <!-- SEO Description -->
+      <meta name="description" content="{{project.seoDescription}}">
+      
+      <!-- Performance optimization: Preload critical resources -->
+      <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+      <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" as="style">
+      
+      
+
+      <!-- Preconnect -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+      <!-- Font stylesheet -->
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+      <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+      <!-- Core CSS -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+             colors: {
+                primary: {
+                  DEFAULT: '{{settings.colors.primary}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3',
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                secondary: {
+                  DEFAULT: '{{settings.colors.secondary}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3',
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                accent: {
+                  DEFAULT: '{{settings.colors.accent}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3',
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+              },
+             fontFamily: {
+  sans: ['{{settings.fonts.primary}}', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+  heading: ['{{settings.fonts.secondary}}', 'Inter', 'system-ui', 'sans-serif'],
+}
+              spacing: {
+                '18': '4.5rem',
+                '22': '5.5rem',
+                '30': '7.5rem',
+              },
+              maxWidth: {
+                '8xl': '88rem',
+                '9xl': '96rem',
+              },
+              animation: {
+                'fade-in': 'fadeIn 0.5s ease-in',
+                'fade-out': 'fadeOut 0.5s ease-out',
+                'slide-up': 'slideUp 0.5s ease-out',
+                'slide-down': 'slideDown 0.5s ease-out',
+                'slide-left': 'slideLeft 0.5s ease-out',
+                'slide-right': 'slideRight 0.5s ease-out',
+                'scale-in': 'scaleIn 0.5s ease-out',
+                'scale-out': 'scaleOut 0.5s ease-out',
+                'spin-slow': 'spin 3s linear infinite',
+                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'bounce-slow': 'bounce 3s infinite',
+                'float': 'float 3s ease-in-out infinite',
+              },
+              keyframes: {
+                fadeIn: {
+                  '0%': { opacity: '0' },
+                  '100%': { opacity: '1' },
+                },
+                fadeOut: {
+                  '0%': { opacity: '1' },
+                  '100%': { opacity: '0' },
+                },
+                slideUp: {
+                  '0%': { transform: 'translateY(20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideDown: {
+                  '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideLeft: {
+                  '0%': { transform: 'translateX(20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                slideRight: {
+                  '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                scaleIn: {
+                  '0%': { transform: 'scale(0.9)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                scaleOut: {
+                  '0%': { transform: 'scale(1.1)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                float: {
+                  '0%, 100%': { transform: 'translateY(0)' },
+                  '50%': { transform: 'translateY(-10px)' },
+                },
+              },
+              aspectRatio: {
+                'portrait': '3/4',
+                'landscape': '4/3',
+                'ultrawide': '21/9',
+              },
+            },
+          },
+          variants: {
+            extend: {
+              opacity: ['disabled'],
+              cursor: ['disabled'],
+              backgroundColor: ['active', 'disabled'],
+              textColor: ['active', 'disabled'],
+            },
+          },
+        }
+      </script>
+
+      <!-- Utilities and Components -->
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+      
+      <!-- Optimized Font Loading -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+      
+      <!-- Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+      <!-- Dynamic Meta Tags -->
+      <meta name="description" content="{{project.meta.ogDescription}}">
+      <meta name="keywords" content="{{project.meta.keywords}}">
+      <meta name="robots" content="{{project.meta.robotsMeta}}">
+      <meta name="google-site-verification" content="{{project.meta.googleVerification}}">
+      <meta name="baidu-verification" content="{{project.meta.baiduVerification}}">
+      <meta name="yandex-verification" content="{{project.meta.yandexVerification}}">
+      <meta name="bing-verification" content="{{project.meta.bingVerification}}">
+      <meta property="og:title" content="{{project.meta.ogTitle}}">
+      <meta property="og:description" content="{{project.meta.ogDescription}}">
+      <meta property="og:image" content="{{project.meta.ogImage}}">
+      <meta property="og:type" content="website">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:site_name" content="{{project.name}}">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="{{project.meta.ogTitle}}">
+      <meta name="twitter:description" content="{{project.meta.ogDescription}}">
+      <meta name="twitter:image" content="{{project.meta.ogImage}}">
+
+      
+      <link rel="icon" type="image/x-icon" href="{{settings.favicon}}">
+      
+   </head>
+   <body class="antialiased text-gray-800 min-h-screen flex flex-col">
+      <!-- Skip to main content link for accessibility -->
+      <a href="#main-content" 
+         class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+         Skip to main content
+      </a>
+
+      <!-- Header -->
+      <header class="relative z-50 bg-white dark:bg-gray-900">
+        <!-- Header content goes here -->
+      </header>
+
+      <!-- Main content area -->
+      <main id="main-content" class="flex-1 relative ">
+        <!-- Content will be injected here -->
+      </main>
+
+      <!-- {bodyScripts} -->
+
+   </body>
+</html><element id="e6a680b2-0619-4d56-b175-ae95ad8903a7" data-section-id="e6a680b2-0619-4d56-b175-ae95ad8903a7">
+
+<div id="root">
+  <nav id="navbar" class="fixed w-full z-50 bg-neutral-900 text-white">
+    <div class="max-w-7xl mx-auto px-4">
+  <div class="flex justify-between items-center h-16">
+    <!-- Logo/brand image with optimized image handling -->
+    <a href="/" class="flex items-center space-x-2">
+      <!-- <picture>
+        <source srcset="https://via.placeholder.com/32 1x, https://via.placeholder.com/64 2x">
+        <img src="https://via.placeholder.com/32" alt="Blog Logo" width="32" height="32" class="w-8 h-8 rounded-full object-cover" loading="lazy" decoding="async">
+      </picture> -->
+      <span class="text-2xl font-bold font-space-grotesk">Blog</span>
+    </a>
+    
+    <!-- Desktop Nav with proper font class -->
+    <nav class="hidden md:flex items-center space-x-8 font-inter" aria-label="Desktop Navigation">
+      
+        <a href="#" class="text-neutral-200 hover:text-[#FF6B6B] transition-colors duration-200" {{#if="" this.current}}aria-current="page" {{="" if}}="">
+          Home
+        </a><a href="#" class="text-neutral-200 hover:text-[#FF6B6B] transition-colors duration-200" {{#if="" this.current}}aria-current="page" {{="" if}}="">
+          Featured Post
+        </a><a href="#" class="text-neutral-200 hover:text-[#FF6B6B] transition-colors duration-200" {{#if="" this.current}}aria-current="page" {{="" if}}="">
+          Latest Articles
+        </a><a href="#" class="text-neutral-200 hover:text-[#FF6B6B] transition-colors duration-200" {{#if="" this.current}}aria-current="page" {{="" if}}="">
+          Categories
+        </a><a href="#" class="text-neutral-200 hover:text-[#FF6B6B] transition-colors duration-200" {{#if="" this.current}}aria-current="page" {{="" if}}="">
+          Blog
+        </a><a href="#" class="text-neutral-200 hover:text-[#FF6B6B] transition-colors duration-200" {{#if="" this.current}}aria-current="page" {{="" if}}="">
+          Contact
+        </a>
+      
+    </nav>
+
+    <!-- Mobile menu button with improved accessibility -->
+    <button id="menuBtn" class="md:hidden text-neutral-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-[#FF6B6B] rounded-md p-1" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle navigation menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path id="menuIcon" class="block" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        <path id="closeIcon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Nav with improved accessibility -->
+  <nav id="mobileMenu" class="hidden md:hidden" aria-label="Mobile Navigation">
+    <div class="px-2 pt-2 pb-3 space-y-1 font-inter">
+      {{#each headerNav}}
+        <a href="{{this.link}}" class="block px-3 py-2 text-neutral-200 hover:bg-neutral-800 hover:text-[#FF6B6B] rounded-md transition-colors duration-200" {{#if="" this.current}}aria-current="page" {{="" if}}="">
+          {{this.label}}
+        </a>
+      {{/each}}
+    </div>
+  </nav>
+</div>
+  </nav>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    const closeIcon = document.getElementById('closeIcon');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+
+    // Hide mobile menu on window resize if screen becomes larger
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      }
+    });
+  </script>
+</div></element><element id="399a8326-d0e9-4194-8fd2-cd381da577c4" data-section-id="399a8326-d0e9-4194-8fd2-cd381da577c4">
+
+<div id="root">
+  <section id="hero" class="relative min-h-[70vh] bg-neutral-900 flex items-center">
+    <div class="noise-effect absolute inset-0 opacity-[0.03] pointer-events-none"></div>
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80"
+           alt="Blog background"
+           class="w-full h-full object-cover opacity-10"
+           loading="lazy"
+      />
+    </div>
+    <div class="max-w-7xl mx-auto px-4 py-20 md:py-32 relative z-10">
+      <div class="text-center">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 font-['Space_Grotesk'] animate__animated animate__fadeIn">
+          Explore Amazing <br/>
+          <span class="text-[#FF6B6B]">Blog Stories</span>
+        </h1>
+        <p class="text-lg md:text-xl text-neutral-300 mb-8 max-w-2xl mx-auto font-['Inter'] animate__animated animate__fadeIn animate__delay-1s">
+          Discover thoughtful articles on technology, design, and creativity. Join our community of curious minds.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate__animated animate__fadeIn animate__delay-2s">
+          <a href="/blog" class="px-8 py-3 bg-[#FF6B6B] text-white rounded-full font-semibold hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
+            Start Reading
+          </a>
+          <a href="/newsletter" class="px-8 py-3 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-neutral-900 transition-all duration-300">
+            Subscribe Newsletter
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .noise-effect {
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+  </style>
+
+  <script>
+    gsap.from("#hero h1", {
+      duration: 1,
+      y: 50,
+      opacity: 0,
+      ease: "power3.out"
+    });
+
+    gsap.from("#hero p", {
+      duration: 1,
+      y: 30,
+      opacity: 0,
+      delay: 0.3,
+      ease: "power3.out"
+    });
+
+    gsap.from("#hero a", {
+      duration: 1,
+      y: 20,
+      opacity: 0,
+      delay: 0.6,
+      stagger: 0.2,
+      ease: "power3.out"
+    });
+  </script>
+</div></element><element id="42513253-5f20-4301-bf6e-bf7d76cbed53" data-section-id="42513253-5f20-4301-bf6e-bf7d76cbed53">
+
+<div id="root">
+  <section id="featured" class="bg-neutral-100 py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-12 font-['Space_Grotesk'] text-center">Featured Posts</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Featured Post Card 1 -->
+        <article class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+          <div class="h-48 bg-neutral-200 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=800&q=80" 
+                 alt="Technology and code on computer screen" 
+                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <span class="bg-[#FF6B6B] text-white text-sm px-3 py-1 rounded-full">Technology</span>
+              <span class="text-neutral-500 text-sm ml-4">5 min read</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 font-['Space_Grotesk']">The Future of Web Development</h3>
+            <p class="text-neutral-600 mb-4 font-['Inter']">Exploring the latest trends and technologies shaping the future of web development...</p>
+            <a href="#" class="text-[#FF6B6B] font-semibold hover:text-opacity-80 transition-colors duration-200">Read More →</a>
+          </div>
+        </article>
+
+        <!-- Featured Post Card 2 -->
+        <article class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+          <div class="h-48 bg-neutral-200 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80" 
+                 alt="UI Design workspace with tablet and tools" 
+                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <span class="bg-[#FF6B6B] text-white text-sm px-3 py-1 rounded-full">Design</span>
+              <span class="text-neutral-500 text-sm ml-4">7 min read</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 font-['Space_Grotesk']">UI Design Principles</h3>
+            <p class="text-neutral-600 mb-4 font-['Inter']">Understanding the fundamental principles behind effective user interface design...</p>
+            <a href="#" class="text-[#FF6B6B] font-semibold hover:text-opacity-80 transition-colors duration-200">Read More →</a>
+          </div>
+        </article>
+
+        <!-- Featured Post Card 3 -->
+        <article class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+          <div class="h-48 bg-neutral-200 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1494859802809-d069c3b71a8a?auto=format&fit=crop&w=800&q=80" 
+                 alt="Creative workspace with notebook and coffee" 
+                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <span class="bg-[#FF6B6B] text-white text-sm px-3 py-1 rounded-full">Creativity</span>
+              <span class="text-neutral-500 text-sm ml-4">4 min read</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 font-['Space_Grotesk']">Mastering Creative Process</h3>
+            <p class="text-neutral-600 mb-4 font-['Inter']">Learn how to enhance your creative workflow and boost productivity...</p>
+            <a href="#" class="text-[#FF6B6B] font-semibold hover:text-opacity-80 transition-colors duration-200">Read More →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // GSAP Animations
+    gsap.from("#featured h2", {
+      scrollTrigger: {
+        trigger: "#featured",
+        start: "top center"
+      },
+      y: 50,
+      opacity: 0,
+      duration: 1
+    });
+
+    gsap.from("#featured article", {
+      scrollTrigger: {
+        trigger: "#featured",
+        start: "top center"
+      },
+      y: 100,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.2
+    });
+
+    // Hover Animation for Cards
+    const cards = document.querySelectorAll('#featured article');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        gsap.to(card, {
+          scale: 1.02,
+          duration: 0.3
+        });
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+          scale: 1,
+          duration: 0.3
+        });
+      });
+    });
+  </script>
+</div></element><element id="4629e8fc-931a-4fcd-b4f3-06a854fe79ee" data-section-id="4629e8fc-931a-4fcd-b4f3-06a854fe79ee">
+
+<section id="blogGrid" class="bg-neutral-900 py-20">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between items-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-white font-['Space_Grotesk']">Latest Articles</h2>
+      <div class="flex gap-4">
+        <button id="prevBtn" class="p-2 text-white border border-white/20 rounded-full hover:bg-white/10 transition-colors">
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button id="nextBtn" class="p-2 text-white border border-white/20 rounded-full hover:bg-white/10 transition-colors">
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="blogContainer">
+      <!-- Blog Post 1 -->
+      <article class="bg-neutral-800 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+        <div class="h-48 bg-neutral-700 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80" 
+               alt="JavaScript Code" 
+               class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <div class="flex items-center mb-4 gap-2">
+            <span class="bg-[#FF6B6B] text-white text-xs px-3 py-1 rounded-full">Development</span>
+            <span class="text-neutral-400 text-sm">June 12, 2023</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white font-['Space_Grotesk']">Modern JavaScript Patterns</h3>
+          <p class="text-neutral-300 mb-4 font-['Inter']">Exploring advanced JavaScript patterns and best practices for modern web development...</p>
+          <a href="#" class="inline-flex items-center text-[#FF6B6B] hover:text-opacity-80 transition-colors duration-200">
+            Read More 
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Blog Post 2 -->
+      <article class="bg-neutral-800 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+        <div class="h-48 bg-neutral-700 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" 
+               alt="UX Design" 
+               class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <div class="flex items-center mb-4 gap-2">
+            <span class="bg-[#FF6B6B] text-white text-xs px-3 py-1 rounded-full">Design</span>
+            <span class="text-neutral-400 text-sm">June 10, 2023</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white font-['Space_Grotesk']">UX Design Principles</h3>
+          <p class="text-neutral-300 mb-4 font-['Inter']">Essential principles every UX designer should know for creating better user experiences...</p>
+          <a href="#" class="inline-flex items-center text-[#FF6B6B] hover:text-opacity-80 transition-colors duration-200">
+            Read More 
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Blog Post 3 -->
+      <article class="bg-neutral-800 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+        <div class="h-48 bg-neutral-700 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" 
+               alt="Development Tools" 
+               class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <div class="flex items-center mb-4 gap-2">
+            <span class="bg-[#FF6B6B] text-white text-xs px-3 py-1 rounded-full">Tools</span>
+            <span class="text-neutral-400 text-sm">June 8, 2023</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white font-['Space_Grotesk']">Essential Dev Tools</h3>
+          <p class="text-neutral-300 mb-4 font-['Inter']">A curated list of must-have development tools to boost your productivity...</p>
+          <a href="#" class="inline-flex items-center text-[#FF6B6B] hover:text-opacity-80 transition-colors duration-200">
+            Read More 
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <script>
+    // GSAP Animations
+    gsap.from("#blogGrid article", {
+      scrollTrigger: {
+        trigger: "#blogGrid",
+        start: "top center"
+      },
+      y: 100,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.2
+    });
+
+    // Blog Navigation
+    let currentPage = 0;
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const container = document.getElementById('blogContainer');
+
+    prevBtn.addEventListener('click', () => {
+      currentPage = Math.max(0, currentPage - 1);
+      updateBlogGrid();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentPage++;
+      updateBlogGrid();
+    });
+
+    function updateBlogGrid() {
+      gsap.to(container, {
+        opacity: 0,
+        duration: 0.3,
+        onComplete: () => {
+          // Here you would typically update the blog content
+          gsap.to(container, {
+            opacity: 1,
+            duration: 0.3
+          });
+        }
+      });
+    }
+  </script>
+</section></element><element id="53f596bb-5c7c-4da9-a058-b35ec4c0ea48" data-section-id="53f596bb-5c7c-4da9-a058-b35ec4c0ea48">
+
+<section id="categories" class="py-20 bg-neutral-100">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-12 text-center font-['Space_Grotesk']">Explore Categories</h2>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Category 1 -->
+      <div class="group bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-[#FF6B6B] text-4xl">
+            <svg width="40" height="40" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+            </svg>
+          </span>
+          <span class="text-neutral-500 group-hover:text-[#FF6B6B] transition-colors duration-300">12 Articles</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-neutral-900 font-['Space_Grotesk']">Development</h3>
+        <p class="text-neutral-600 font-['Inter']">Web development tutorials and best practices</p>
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=300&q=80" alt="Development" class="w-full h-32 object-cover mt-4 rounded-lg">
+      </div>
+
+      <!-- Category 2 -->
+      <div class="group bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-[#FF6B6B] text-4xl">
+            <svg width="40" height="40" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 18c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z"/>
+            </svg>
+          </span>
+          <span class="text-neutral-500 group-hover:text-[#FF6B6B] transition-colors duration-300">8 Articles</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-neutral-900 font-['Space_Grotesk']">Design</h3>
+        <p class="text-neutral-600 font-['Inter']">UI/UX design principles and trends</p>
+        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=300&q=80" alt="Design" class="w-full h-32 object-cover mt-4 rounded-lg">
+      </div>
+
+      <!-- Category 3 -->
+      <div class="group bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-[#FF6B6B] text-4xl">
+            <svg width="40" height="40" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </span>
+          <span class="text-neutral-500 group-hover:text-[#FF6B6B] transition-colors duration-300">15 Articles</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-neutral-900 font-['Space_Grotesk']">Technology</h3>
+        <p class="text-neutral-600 font-['Inter']">Latest tech news and innovations</p>
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=300&q=80" alt="Technology" class="w-full h-32 object-cover mt-4 rounded-lg">
+      </div>
+
+      <!-- Category 4 -->
+      <div class="group bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-[#FF6B6B] text-4xl">
+            <svg width="40" height="40" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+            </svg>
+          </span>
+          <span class="text-neutral-500 group-hover:text-[#FF6B6B] transition-colors duration-300">10 Articles</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-neutral-900 font-['Space_Grotesk']">Tutorials</h3>
+        <p class="text-neutral-600 font-['Inter']">Step-by-step coding guides</p>
+        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=300&q=80" alt="Tutorials" class="w-full h-32 object-cover mt-4 rounded-lg">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    gsap.from("#categories .grid > div", {
+      scrollTrigger: {
+        trigger: "#categories",
+        start: "top center"
+      },
+      y: 60,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.2
+    });
+
+    document.querySelectorAll('#categories .grid > div').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        gsap.to(card, {
+          y: -10,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      });
+
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+          y: 0,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      });
+    });
+  </script>
+</section></element><element id="3b342cbd-3eaf-44d9-9b4a-7f4af0c607d0" data-section-id="3b342cbd-3eaf-44d9-9b4a-7f4af0c607d0">
+
+<div id="root">
+  <section id="newsletter" class="py-20 bg-neutral-900 relative overflow-hidden">
+    <div class="noise-effect absolute inset-0 opacity-[0.03] pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="bg-neutral-800 rounded-2xl p-8 md:p-12 relative overflow-hidden">
+        <!-- Background Newsletter Image -->
+        <div class="absolute inset-0 opacity-10">
+          <img src="https://images.unsplash.com/photo-1586769852044-692d6e3703f0?auto=format&fit=crop&w=1200&q=80" 
+               alt="Newsletter background" 
+               class="w-full h-full object-cover"
+          />
+        </div>
+        
+        <div class="relative z-10">
+          <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 font-['Space_Grotesk']">Stay Updated</h2>
+            <p class="text-neutral-300 mb-8 font-['Inter']">Subscribe to our newsletter and receive the latest blog posts, tech news, and exclusive content directly in your inbox.</p>
+            
+            <form id="newsletterForm" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+              <input 
+                type="email" 
+                placeholder="Enter your email" 
+                class="flex-1 px-6 py-3 rounded-full bg-neutral-700 text-white border border-neutral-600 focus:outline-none focus:border-[#FF6B6B] transition-colors font-['Inter']"
+                required
+              >
+              <button 
+                type="submit" 
+                class="px-8 py-3 bg-[#FF6B6B] text-white rounded-full font-semibold hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105"
+              >
+                Subscribe
+              </button>
+            </form>
+            
+            <p class="text-neutral-400 text-sm mt-4 font-['Inter']">No spam, unsubscribe at any time.</p>
+          </div>
+        </div>
+        
+        <!-- Decorative Elements -->
+        <div class="absolute top-0 left-0 w-32 h-32 bg-[#FF6B6B] rounded-full opacity-10 transform -translate-x-16 -translate-y-16"></div>
+        <div class="absolute bottom-0 right-0 w-40 h-40 bg-[#FF6B6B] rounded-full opacity-10 transform translate-x-20 translate-y-20"></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // GSAP Animations
+    gsap.from("#newsletter .bg-neutral-800", {
+      scrollTrigger: {
+        trigger: "#newsletter",
+        start: "top center"
+      },
+      y: 100,
+      opacity: 0,
+      duration: 1
+    });
+
+    gsap.from("#newsletter h2, #newsletter p", {
+      scrollTrigger: {
+        trigger: "#newsletter",
+        start: "top center"
+      },
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.2
+    });
+
+    gsap.from("#newsletter form", {
+      scrollTrigger: {
+        trigger: "#newsletter",
+        start: "top center"
+      },
+      y: 30,
+      opacity: 0,
+      duration: 1,
+      delay: 0.4
+    });
+
+    // Form Handling
+    const newsletterForm = document.getElementById('newsletterForm');
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Animation for successful submission
+      const button = newsletterForm.querySelector('button');
+      const originalText = button.textContent;
+      
+      gsap.to(button, {
+        scale: 0.95,
+        duration: 0.1,
+        onComplete: () => {
+          button.textContent = "Subscribed!";
+          gsap.to(button, {
+            scale: 1,
+            duration: 0.1,
+            backgroundColor: "#4CAF50"
+          });
+          
+          // Reset after 2 seconds
+          setTimeout(() => {
+            gsap.to(button, {
+              backgroundColor: "#FF6B6B",
+              duration: 0.3,
+              onComplete: () => {
+                button.textContent = originalText;
+              }
+            });
+          }, 2000);
+        }
+      });
+      
+      newsletterForm.reset();
+    });
+  </script>
+</div></element><element id="d2c92c59-775e-42e3-95e6-164b39733517" data-section-id="d2c92c59-775e-42e3-95e6-164b39733517">
+
+<div id="root">
+  <section id="about" class="py-20 bg-neutral-100">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1">
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-6 font-['Space_Grotesk']">About Our Blog</h2>
+          
+          <div class="space-y-6 text-neutral-600 font-['Inter']">
+            <p>Welcome to our tech and design blog, where we share insights, tutorials, and the latest trends in web development and design. Our mission is to provide valuable content that helps developers and designers grow in their careers.</p>
+            
+            <div class="grid grid-cols-2 gap-6 my-8">
+              <div class="bg-white p-6 rounded-xl shadow-sm">
+                <div class="text-[#FF6B6B] text-2xl font-bold mb-2">500+</div>
+                <div class="text-sm text-neutral-500">Articles Published</div>
+              </div>
+              <div class="bg-white p-6 rounded-xl shadow-sm">
+                <div class="text-[#FF6B6B] text-2xl font-bold mb-2">50k+</div>
+                <div class="text-sm text-neutral-500">Monthly Readers</div>
+              </div>
+            </div>
+            
+            <p>Our team of experienced developers and designers work together to bring you comprehensive guides, practical tips, and in-depth analysis of the latest industry trends.</p>
+            
+            <div class="flex items-center gap-4 mt-8">
+              <a href="/about" class="px-6 py-3 bg-[#FF6B6B] text-white rounded-full font-semibold hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
+                Learn More
+              </a>
+              <a href="/contact" class="px-6 py-3 border-2 border-neutral-900 text-neutral-900 rounded-full font-semibold hover:bg-neutral-900 hover:text-white transition-all duration-300">
+                Contact Us
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="order-1 lg:order-2">
+          <div class="relative">
+            <div class="aspect-square bg-neutral-200 rounded-2xl overflow-hidden">
+              <!-- Added featured image -->
+              <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80" 
+                   alt="Person working on laptop with coffee"
+                   class="w-full h-full object-cover"
+              />
+              <div class="absolute inset-0 bg-gradient-to-br from-[#FF6B6B]/20 to-transparent"></div>
+            </div>
+            
+            <!-- Decorative Elements -->
+            <div class="absolute -top-4 -right-4 w-24 h-24 bg-[#FF6B6B] rounded-xl opacity-10 -z-10"></div>
+            <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-neutral-900 rounded-xl opacity-10 -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // GSAP Animations
+    gsap.from("#about h2", {
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top center"
+      },
+      y: 50,
+      opacity: 0,
+      duration: 1
+    });
+
+    gsap.from("#about p", {
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top center"
+      },
+      y: 30,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.2
+    });
+
+    gsap.from("#about .grid-cols-2 > div", {
+      scrollTrigger: {
+        trigger: "#about .grid-cols-2",
+        start: "top center"
+      },
+      x: -30,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.2
+    });
+
+    gsap.from("#about .aspect-square", {
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top center"
+      },
+      scale: 0.8,
+      opacity: 0,
+      duration: 1
+    });
+
+    // Stats Counter Animation
+    const stats = document.querySelectorAll('#about .text-2xl');
+    stats.forEach(stat => {
+      const target = parseInt(stat.textContent);
+      let count = 0;
+      
+      gsap.to({}, {
+        scrollTrigger: {
+          trigger: stat,
+          start: "top center"
+        },
+        duration: 2,
+        onUpdate: function() {
+          const progress = this.progress();
+          count = Math.round(progress * target);
+          stat.textContent = count + '+';
+        }
+      });
+    });
+  </script>
+</div></element><element id="9d3ffe24-31d8-445c-9d82-389304d2ba52" data-section-id="9d3ffe24-31d8-445c-9d82-389304d2ba52">
+
+<div id="root">
+  <section id="contact" class="py-20 bg-neutral-900">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="space-y-8">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 font-['Space_Grotesk']">Get In Touch</h2>
+          <p class="text-neutral-300 font-['Inter']">Have a question or suggestion? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+          
+          <!-- Added decorative contact image -->
+          <div class="hidden lg:block">
+            <img src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=600&q=80" 
+                 alt="Contact support illustration" 
+                 class="rounded-lg w-full h-48 object-cover opacity-80"
+                 loading="lazy">
+          </div>
+          
+          <div class="space-y-6">
+            <div class="flex items-center space-x-4 text-neutral-300">
+              <svg class="w-6 h-6 text-[#FF6B6B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <span class="font-['Inter']">contact@blog.com</span>
+            </div>
+            <div class="flex items-center space-x-4 text-neutral-300">
+              <svg class="w-6 h-6 text-[#FF6B6B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              <span class="font-['Inter']">123 Blog Street, Digital City</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-neutral-800 p-8 rounded-2xl">
+          <form id="contactForm" class="space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-neutral-300 mb-2 font-['Inter']">Name</label>
+                <input type="text" required class="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg text-white focus:outline-none focus:border-[#FF6B6B] transition-colors">
+              </div>
+              <div>
+                <label class="block text-neutral-300 mb-2 font-['Inter']">Email</label>
+                <input type="email" required class="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg text-white focus:outline-none focus:border-[#FF6B6B] transition-colors">
+              </div>
+            </div>
+            
+            <div>
+              <label class="block text-neutral-300 mb-2 font-['Inter']">Subject</label>
+              <input type="text" required class="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg text-white focus:outline-none focus:border-[#FF6B6B] transition-colors">
+            </div>
+            
+            <div>
+              <label class="block text-neutral-300 mb-2 font-['Inter']">Message</label>
+              <textarea rows="4" required class="w-full px-4 py-3 bg-neutral-700 border border-neutral-600 rounded-lg text-white focus:outline-none focus:border-[#FF6B6B] transition-colors"></textarea>
+            </div>
+            
+            <button type="submit" class="w-full px-8 py-4 bg-[#FF6B6B] text-white rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // GSAP Animations
+    gsap.from("#contact h2", {
+      scrollTrigger: {
+        trigger: "#contact",
+        start: "top center"
+      },
+      y: 50,
+      opacity: 0,
+      duration: 1
+    });
+
+    gsap.from("#contact p, #contact .space-y-6", {
+      scrollTrigger: {
+        trigger: "#contact",
+        start: "top center"
+      },
+      y: 30,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.2
+    });
+
+    gsap.from("#contact form", {
+      scrollTrigger: {
+        trigger: "#contact form",
+        start: "top center"
+      },
+      y: 50,
+      opacity: 0,
+      duration: 1
+    });
+
+    // Form handling
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const button = contactForm.querySelector('button');
+      const originalText = button.textContent;
+      
+      gsap.to(button, {
+        scale: 0.95,
+        duration: 0.1,
+        onComplete: () => {
+          button.textContent = "Message Sent!";
+          gsap.to(button, {
+            scale: 1,
+            duration: 0.1,
+            backgroundColor: "#4CAF50"
+          });
+          
+          setTimeout(() => {
+            gsap.to(button, {
+              backgroundColor: "#FF6B6B",
+              duration: 0.3,
+              onComplete: () => {
+                button.textContent = originalText;
+              }
+            });
+            contactForm.reset();
+          }, 2000);
+        }
+      });
+    });
+
+    // Input focus animations
+    const inputs = document.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+      input.addEventListener('focus', () => {
+        gsap.to(input, {
+          scale: 1.02,
+          duration: 0.2
+        });
+      });
+      
+      input.addEventListener('blur', () => {
+        gsap.to(input, {
+          scale: 1,
+          duration: 0.2
+        });
+      });
+    });
+  </script>
+</div></element><element id="50ac37f6-d88f-4a84-b59a-69c3eb14b609" data-section-id="50ac37f6-d88f-4a84-b59a-69c3eb14b609">
+
+<div id="root">
+  <footer id="footer" class="bg-neutral-900 text-neutral-300">
+    <div class="max-w-7xl mx-auto px-4">
+      <!-- Main Footer -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-16">
+        <!-- Brand Section -->
+        <div class="space-y-6">
+          <h3 class="text-2xl font-bold text-white font-['Space_Grotesk']">Blog</h3>
+          <p class="text-neutral-400 font-['Inter']">Exploring the latest in web development, design, and technology through comprehensive articles and tutorials.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-neutral-400 hover:text-[#FF6B6B] transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-[#FF6B6B] transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm3 8h-1.35c-.538 0-.65.221-.65.778V10h2l-.209 2H13v7h-3v-7H8v-2h2V8.192C10 6.037 10.96 5 13.361 5H15v3z"/></svg>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-[#FF6B6B] transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544A8.127 8.127 0 0 1 5.5 16.898a5.778 5.778 0 0 0 4.252-1.189 2.879 2.879 0 0 1-2.684-1.995 2.88 2.88 0 0 0 1.298-.049c-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359a2.877 2.877 0 0 1-.889-3.835 8.153 8.153 0 0 0 5.92 3.001 2.876 2.876 0 0 1 4.895-2.62 5.73 5.73 0 0 0 1.824-.697 2.884 2.884 0 0 1-1.263 1.589 5.73 5.73 0 0 0 1.649-.453 5.765 5.765 0 0 1-1.433 1.489z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-lg font-bold text-white mb-6 font-['Space_Grotesk']">Quick Links</h4>
+          <ul class="space-y-4 font-['Inter']">
+            <li><a href="/" class="hover:text-[#FF6B6B] transition-colors">Home</a></li>
+            <li><a href="/blog" class="hover:text-[#FF6B6B] transition-colors">Blog</a></li>
+            <li><a href="/categories" class="hover:text-[#FF6B6B] transition-colors">Categories</a></li>
+            <li><a href="/about" class="hover:text-[#FF6B6B] transition-colors">About</a></li>
+            <li><a href="/contact" class="hover:text-[#FF6B6B] transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Categories -->
+        <div>
+          <h4 class="text-lg font-bold text-white mb-6 font-['Space_Grotesk']">Categories</h4>
+          <ul class="space-y-4 font-['Inter']">
+            <li><a href="#" class="hover:text-[#FF6B6B] transition-colors">Development</a></li>
+            <li><a href="#" class="hover:text-[#FF6B6B] transition-colors">Design</a></li>
+            <li><a href="#" class="hover:text-[#FF6B6B] transition-colors">Technology</a></li>
+            <li><a href="#" class="hover:text-[#FF6B6B] transition-colors">Tutorials</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <h4 class="text-lg font-bold text-white mb-6 font-['Space_Grotesk']">Newsletter</h4>
+          <form class="space-y-4">
+            <input type="email" placeholder="Your email" class="w-full px-4 py-2 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-[#FF6B6B] transition-colors">
+            <button type="submit" class="w-full px-4 py-2 bg-[#FF6B6B] text-white rounded-lg hover:bg-opacity-90 transition-colors">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Footer -->
+      <div class="border-t border-neutral-800 py-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-neutral-400 text-sm font-['Inter']">&copy; 2024 Blog. All rights reserved.</p>
+          <div class="flex space-x-6 mt-4 md:mt-0">
+            <a href="/privacy" class="text-neutral-400 hover:text-[#FF6B6B] text-sm transition-colors font-['Inter']">Privacy Policy</a>
+            <a href="/terms" class="text-neutral-400 hover:text-[#FF6B6B] text-sm transition-colors font-['Inter']">Terms</a>
+            <a href="/rss" class="text-neutral-400 hover:text-[#FF6B6B] text-sm transition-colors font-['Inter']">RSS Feed</a>
+            <a href="/newsletter" class="text-neutral-400 hover:text-[#FF6B6B] text-sm transition-colors font-['Inter']">Newsletter</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // GSAP Animations
+    gsap.from("#footer .grid > div", {
+      scrollTrigger: {
+        trigger: "#footer",
+        start: "top bottom"
+      },
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.2
+    });
+
+    // Social Icons Hover Animation
+    const socialIcons = document.querySelectorAll('#footer .flex.space-x-4 a');
+    socialIcons.forEach(icon => {
+      icon.addEventListener('mouseenter', () => {
+        gsap.to(icon, {
+          y: -3,
+          duration: 0.2
+        });
+      });
+      
+      icon.addEventListener('mouseleave', () => {
+        gsap.to(icon, {
+          y: 0,
+          duration: 0.2
+        });
+      });
+    });
+  </script>
+</div></element>
+            <div id="page_complete">
+            <script>
+                console.log('Page complete');
+            </script>
+            </body>
+            </html>
+          
